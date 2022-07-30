@@ -75,19 +75,19 @@ final class CmfCommand extends AbstractCommand
         $this->input  = $input;
         $this->output = $output;
         $this->cwd    = getcwd();
-//        try {
-//            $this->build('app');
-//        } catch (\Exception $e) {
-//            echo $e->getMessage();
-//            print_r($e->getTraceAsString());
-//        }
-//
-//        try {
-//            $this->build('api');
-//        } catch (\Exception $e) {
-//            echo $e->getMessage();
-//            print_r($e->getTraceAsString());
-//        }
+        try {
+            $this->build('app');
+        } catch (\Exception $e) {
+            echo $e->getMessage();
+            print_r($e->getTraceAsString());
+        }
+
+        try {
+            $this->build('api');
+        } catch (\Exception $e) {
+            echo $e->getMessage();
+            print_r($e->getTraceAsString());
+        }
 
         try {
             $this->build('plugins');
