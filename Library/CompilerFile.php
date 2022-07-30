@@ -490,12 +490,12 @@ final class CompilerFile implements FileInterface
                     $namespace = $topStatement['name'];
                     $this->namespace = $namespace;
 
-                    if (!preg_match('/^[A-Z]/', $namespace)) {
-                        throw new CompilerException(
-                            "Namespace '{$namespace}' must be in camelized-form",
-                            $topStatement
-                        );
-                    }
+//                    if (!preg_match('/^[A-Z]/', $namespace)) {
+//                        throw new CompilerException(
+//                            "Namespace '{$namespace}' must be in camelized-form",
+//                            $topStatement
+//                        );
+//                    }
 
                     break;
 

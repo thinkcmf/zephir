@@ -41,7 +41,7 @@ final class InstallCommand extends AbstractCommand
     public function __construct(Compiler $compiler, Config $config)
     {
         $this->compiler = $compiler;
-        $this->config = $config;
+        $this->config   = $config;
 
         parent::__construct();
     }
@@ -53,7 +53,7 @@ final class InstallCommand extends AbstractCommand
             ->setDescription('Installs the extension in the extension directory (may require root password)')
             ->addOption('dev', null, InputOption::VALUE_NONE, 'Install the extension in development mode')
             ->addOption('no-dev', null, InputOption::VALUE_NONE, 'Install the extension in production mode')
-            ->setHelp($this->getDevelopmentModeHelp().PHP_EOL.$this->getZflagsHelp());
+            ->setHelp($this->getDevelopmentModeHelp() . PHP_EOL . $this->getZflagsHelp());
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -68,7 +68,7 @@ final class InstallCommand extends AbstractCommand
             $io->getErrorStyle()->note($e->getMessage());
 
             return 0;
-        } catch (CompilerException | Exception $e) {
+        } catch (CompilerException|Exception $e) {
             $io->getErrorStyle()->error($e->getMessage());
 
             return 1;
@@ -76,9 +76,14 @@ final class InstallCommand extends AbstractCommand
 
         $success = ['Extension installed.'];
 
-        $namespace = $this->config->get('namespace');
-        if (!extension_loaded($namespace)) {
-            $success[] = sprintf('Add "extension=%s.so" to your php.ini', $namespace);
+        $namespace     = $this->config->get('namespace');
+        $extensionName = $this->config->get('extension-name');
+        if (empty($extensionName) || !is_string($extensionName)) {
+            $extensionName = $namespace;
+        }
+
+        if (!extension_loaded($extensionName)) {
+            $success[] = sprintf('Add "extension=%s.so" to your php.ini', $extensionName);
         }
 
         $io->text($success);
