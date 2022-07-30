@@ -151,7 +151,7 @@ final class CmfCommand extends AbstractCommand
         $this->config->set('extension-name', 'thinkcmf_' . $namespace);
         $this->config->set('nonexistent-class', false, 'warnings');
         $this->config->set('nonexistent-function', false, 'warnings');
-
+        $this->config->set('author', 'ThinkCMF Team');
 
         $this->compiler->generate(true);
         $this->compiler->compile();
