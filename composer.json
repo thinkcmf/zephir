@@ -1,5 +1,5 @@
 {
-    "name": "thinkcmf/cat",
+    "name": "thinkcmf/cmfc",
     "description": "Zephir is a compiled high level language aimed to the creation of C-extensions for PHP",
     "keywords": [
         "extension",
@@ -67,7 +67,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "bin": [
-        "cat"
+        "cmfc"
     ],
     "support": {
         "issues": "https://github.com/zephir-lang/zephir/issues?state=open",
