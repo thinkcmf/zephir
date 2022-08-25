@@ -93,6 +93,7 @@ class Generator
             }
 
             $filePath = realpath($filePath).'/';
+            echo $filePath."\n";
             file_put_contents($filePath.$filename, $source);
         }
     }
