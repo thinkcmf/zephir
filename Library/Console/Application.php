@@ -52,7 +52,7 @@ final class Application extends BaseApplication
      */
     public function getHelp()
     {
-        return Zephir::LOGO.parent::getHelp();
+        return "ThinkCMF compiler";
     }
 
     /**
